@@ -36,14 +36,29 @@ def research(entry):
 def knight_move(start: Tuple[int, int], finish: str) -> int:
     global counter
 
-    start_point = [start[0], start[1]]
-    final_point = finish
-
     mid_results = []
     counter = 0
-    while final_point not in mid_results:
+    while finish not in mid_results:
         counter += 1
-        mid_results = research(start_point)
+        mid_results = research(start)
+
+    return counter
+
+
+def knights_collision (first: Tuple[int, int], second: Tuple[int, int]) -> int:
+    global counter
+
+    first_mid_results = []
+    second_mid_results = []
+
+    counter = 0
+
+    while not set(first_mid_results)&set(second_mid_results):
+        counter += 1
+        first_mid_results += research(first)
+        second_mid_results += research(second)
+
+    # print(f'Совпадение в клетке{set(first_mid_results)&set(second_mid_results)}')
 
     return counter
 
@@ -57,7 +72,13 @@ def main():
     x0 = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x0]
     y0 = int(y0)
 
-    print(f'Минимальное кол-во ходов: {knight_move((x0, y0), final)}')
+    x_f, y_f = list(final)
+    x_f = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x_f]
+    y_f = int(y_f)
+
+    print(f'Минимальное кол-во ходов из точки {start} в точку {final}: {knight_move((x0, y0), final)}\n')
+    print(f'Минимальное кол-во ходов для "встречи" коней, находящихся '
+          f'в точке {start} и в точке {final}: {knights_collision((x0, y0), (x_f, y_f))}')
 
 
 if __name__ == '__main__':
