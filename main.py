@@ -1,3 +1,6 @@
+from typing import Tuple
+
+
 def move(x, y, step=0):
     if step == counter:
         points.append(str(y) + str(x))
@@ -20,9 +23,8 @@ def research(entry):
     global points
     points = []
 
-    x0, y0 = list(entry)
-    x0 = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x0]
-    y0 = int(y0)
+    x0 = entry[0]
+    y0 = entry[1]
 
     move(x0, y0)  # (x0, y0) - исходная позиция
 
@@ -31,21 +33,31 @@ def research(entry):
     return points
 
 
-# def knight_move (start: Tuple[int, int], finish: Tuple[int, int]) -> int:
-#
-
-def main():
+def knight_move(start: Tuple[int, int], finish: str) -> int:
     global counter
 
-    start_point = 'D6'
-    final_point = 'F2'
+    start_point = [start[0], start[1]]
+    final_point = finish
+
     mid_results = []
     counter = 0
     while final_point not in mid_results:
         counter += 1
         mid_results = research(start_point)
 
-    print(counter)
+    return counter
+
+
+def main():
+
+    start = input('Введите начальную клетку (например D6):\n')
+    final = input('Введите конечную клетку:\n')
+
+    x0, y0 = list(start)
+    x0 = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x0]
+    y0 = int(y0)
+
+    print(f'Минимальное кол-во ходов: {knight_move((x0, y0), final)}')
 
 
 if __name__ == '__main__':
