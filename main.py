@@ -76,7 +76,7 @@ def main():
     x_f = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x_f]
     y_f = int(y_f)
 
-    print(f'Минимальное кол-во ходов из точки {start} в точку {final}: {knight_move((x0, y0), final)}\n')
+    print(f'Минимальное кол-во ходов коня из точки {start} в точку {final}: {knight_move((x0, y0), final)}\n')
     print(f'Минимальное кол-во ходов для "встречи" коней, находящихся '
           f'в точке {start} и в точке {final}: {knights_collision((x0, y0), (x_f, y_f))}')
 
