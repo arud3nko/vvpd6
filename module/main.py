@@ -83,3 +83,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+"""
+Develop -> .... ->
+*                |
+|                *
+MASTER          MASTER
+
+"""
