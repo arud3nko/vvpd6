@@ -18,6 +18,8 @@ def move(x, y, step=0):
         if x > 1 and y < 7: move(x - 1, y + 2, step + 1)
         if x > 2 and y < 8: move(x - 2, y + 1, step + 1)
 
+    return points
+
 
 def research(entry):
     global points
@@ -45,7 +47,7 @@ def knight_move(start: Tuple[int, int], finish: str) -> int:
     return counter
 
 
-def knights_collision (first: Tuple[int, int], second: Tuple[int, int]) -> int:
+def knights_collision(first: Tuple[int, int], second: Tuple[int, int]) -> int:
     global counter
 
     first_mid_results = []
@@ -63,10 +65,10 @@ def knights_collision (first: Tuple[int, int], second: Tuple[int, int]) -> int:
     return counter
 
 
-def main():
+def count(start, final):
 
-    start = input('Введите начальную клетку (например D6):\n')
-    final = input('Введите конечную клетку:\n')
+    # start = input('Введите начальную клетку (например D6):\n')
+    # final = input('Введите конечную клетку:\n')
 
     x0, y0 = list(start)
     x0 = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8}[x0]
@@ -79,15 +81,12 @@ def main():
     print(f'Минимальное кол-во ходов коня из точки {start} в точку {final}: {knight_move((x0, y0), final)}\n')
     print(f'Минимальное кол-во ходов для "встречи" коней, находящихся '
           f'в точке {start} и в точке {final}: {knights_collision((x0, y0), (x_f, y_f))}')
+    return knight_move((x0, y0), final), knights_collision((x0, y0), (x_f, y_f))
 
 
-if __name__ == '__main__':
-    main()
-
-"""
-Develop -> .... ->
-*                |
-|                *
-MASTER          MASTER
-
-"""
+def additional():
+    global counter
+    global points
+    counter = 1
+    points = []
+    return counter, points
