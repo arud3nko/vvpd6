@@ -1,1 +1,3 @@
-test.py
+.coverage
+.pytest_cache/*
+*.pyc
