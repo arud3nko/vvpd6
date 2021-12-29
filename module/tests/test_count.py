@@ -1,5 +1,11 @@
 from module import con
+import pytest
 
 
-def test_count():
-    assert con.count('D6', 'A2') == (3, 2)
+@pytest.fixture()
+def temp():
+    return ['D6', 'A2']
+
+
+def test_count(temp):
+    assert con.count(*temp) == (3, 2)
