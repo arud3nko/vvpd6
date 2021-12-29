@@ -46,6 +46,11 @@
 
         return counter
 
+***
+
+## ПОДРОБНАЯ ДОКУМЕНТАЦИЯ:
+
+> Страница [GITHUB PAGES](https://arud3nko.github.io/vvpd6/)
 
 
 
