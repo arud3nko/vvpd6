@@ -30,7 +30,7 @@
 
 ## Пример функции:
 
-
+```python
     def knights_collision(first: Tuple[int, int], second: Tuple[int, int]) -> int:
         global counter
 
@@ -45,7 +45,7 @@
             second_mid_results += research(second)
 
         return counter
-
+```
 ***
 
 ## ПОДРОБНАЯ ДОКУМЕНТАЦИЯ:
